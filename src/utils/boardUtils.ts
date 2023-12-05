@@ -1,5 +1,5 @@
 import {IBoardCell} from "../types/boardReducer.ts";
-import {makepuzzle, ratepuzzle} from "sudoku";
+import {makepuzzle} from "sudoku";
 
 function check(board: IBoardCell[][], pos: [number, number]): boolean {
   const current = board[pos[0]][pos[1]].value;
@@ -55,7 +55,7 @@ export function initBoard(): IBoardCell[][] {
       // @ts-ignore
       value: values[i] ? values[i].toString() : '.',
       error: false,
-      immutable: values[i] ? true : false,
+      immutable: !!values[i],
     });
   }
   console.log(board);
